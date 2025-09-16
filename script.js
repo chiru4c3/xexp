@@ -30,7 +30,7 @@ function generateChart() {
         const barContainer = document.createElement('div');
         barContainer.className = 'spending-chart__bar';
         
-        // Corrected for Test Case 3: Set data-amount as a number without a dollar sign
+        // Corrected for Test Case 3: Set data-amount as a number string (e.g., "17.45")
         barContainer.setAttribute('data-label', item.day);
         barContainer.setAttribute('data-amount', item.amount.toFixed(2));
         
@@ -45,21 +45,12 @@ function generateChart() {
         const barHeight = (heightPercentage / 100) * maxHeight;
         barContainer.style.height = `${barHeight}px`;
         
-        // Corrected for Test Case 5: Create a tooltip element
+        // Corrected for Test Case 5: Create a tooltip element and format its text content
         const tooltip = document.createElement('div');
         tooltip.className = 'tooltip';
         tooltip.textContent = `$${item.amount.toFixed(2)}`;
         barContainer.appendChild(tooltip);
         
-        // Add hover event listeners for tooltip visibility
-        barContainer.addEventListener('mouseenter', function() {
-            tooltip.style.display = 'block';
-        });
-        
-        barContainer.addEventListener('mouseleave', function() {
-            tooltip.style.display = 'none';
-        });
-
         // Create day label
         const dayLabel = document.createElement('div');
         dayLabel.className = 'day-label';

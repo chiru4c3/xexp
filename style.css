@@ -72,9 +72,9 @@ body {
 /* Chart Container */
 .spending-chart {
     display: flex;
-    align-items: flex-end; /* Use flex-end to align bars to the bottom */
+    align-items: flex-end;
     justify-content: space-between;
-    height: 200px; /* Increased for better visibility and scaling */
+    height: 200px;
     margin-bottom: 32px;
     gap: 12px;
     position: relative;
@@ -114,8 +114,8 @@ body {
     margin-bottom: 8px;
     pointer-events: none;
     z-index: 1000;
-    opacity: 0; /* Initially hidden */
-    visibility: hidden; /* Initially hidden */
+    opacity: 0;
+    visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
