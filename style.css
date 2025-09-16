@@ -141,6 +141,42 @@ body {
     opacity: 1;
     visibility: visible;
 }
+/* Tooltip - HTML element instead of pseudo-element */
+.tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #382314;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    white-space: nowrap;
+    margin-bottom: 8px;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #382314;
+}
+
+/* Remove the old pseudo-element tooltip styles */
+/* Delete these if they exist in your CSS:
+.spending-chart__bar::before,
+.spending-chart__bar::after
+*/
 
 /* Day Labels */
 .day-label {
