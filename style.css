@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #f8f4f0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 540px;
+}
+
+/* Balance Section */
+.balance {
+    background: linear-gradient(135deg, #ec775f, #f5a468);
+    padding: 32px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.balance-title {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    opacity: 0.9;
+}
+
+.balance_amount {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.balance-logo {
+    flex-shrink: 0;
+}
+
+/* Spending Section */
+.spending {
+    background: white;
+    padding: 40px 32px 32px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.spending h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #382314;
+    margin-bottom: 56px;
+}
+
+/* Chart Container */
+.spending-chart {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    height: 200px;
+    margin-bottom: 32px;
+    gap: 12px;
+    position: relative;
+}
+
+/* Individual Bars */
+.spending-chart__bar {
+    position: relative;
+    background-color: #ec775f;
+    border-radius: 5px;
+    flex: 1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+
+.spending-chart__bar.active {
+    background-color: #76b5bc;
+}
+
+.spending-chart__bar:hover {
+    opacity: 0.6;
+}
+
+/* Day Labels */
+.day-label {
+    position: absolute;
+    bottom: -30px;
+    font-size: 15px;
+    color: #93867b;
+    font-weight: 400;
+    text-align: center;
+}
+
+/* Tooltip */
+.tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #382314;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    white-space: nowrap;
+    margin-bottom: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #382314;
+}
+
+.spending-chart__bar:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Divider */
+.divider {
+    border: none;
+    height: 2px;
+    background-color: #f8f4f0;
+    margin: 32px 0;
+}
+
+/* Footer Section */
+.spending-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.spending_total {
+    font-size: 18px;
+    color: #93867b;
+    margin: 0;
+}
+
+.spending_total span {
+    display: block;
+    font-size: 48px;
+    font-weight: 700;
+    color: #382314;
+    margin-top: 12px;
+}
+
+.spending-comparison-wrapper {
+    text-align: right;
+}
+
+.spending_comparison {
+    font-size: 18px;
+    font-weight: 700;
+    color: #382314;
+    margin: 0 0 4px 0;
+}
+
+.comparison-text {
+    font-size: 15px;
+    color: #93867b;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 16px;
+    }
+    
+    .balance {
+        padding: 24px;
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .spending {
+        padding: 32px 24px 24px;
+    }
+    
+    .spending h2 {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+    
+    .spending-chart {
+        height: 150px;
+        gap: 8px;
+    }
+    
+    .spending_total span {
+        font-size: 36px;
+    }
+    
+    .spending-footer {
+        flex-direction: column;
+        align-items: start;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .spending h2 {
+        font-size: 24px;
+    }
+    
+    .spending-chart {
+        height: 120px;
+    }
+    
+    .balance_amount {
+        font-size: 28px;
+    }
+    
+    .spending_total span {
+        font-size: 32px;
+    }
+}

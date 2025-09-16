@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Chart Component</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Balance Section -->
+        <div class="balance">
+            <div class="balance-info">
+                <p class="balance-title">My balance</p>
+                <p class="balance_amount">$921.48</p>
+            </div>
+            <div class="balance-logo">
+                <svg width="72" height="48" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" fill-rule="evenodd">
+                        <circle fill="#382314" cx="48" cy="24" r="24"/>
+                        <circle fill="none" stroke="#fff" stroke-width="2" cx="24" cy="24" r="23"/>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Spending Chart Section -->
+        <div class="spending">
+            <h2>Spending - Last 7 days</h2>
+            <div id="spending-chart" class="spending-chart">
+                <!-- Bars will be dynamically generated here -->
+            </div>
+            
+            <hr class="divider">
+            
+            <div class="spending-footer">
+                <div class="spending-total-wrapper">
+                    <p class="spending_total">Total this month <span>$478.33</span></p>
+                </div>
+                <div class="spending-comparison-wrapper">
+                    <p class="spending_comparison">+2.4%</p>
+                    <p class="comparison-text">from last month</p>
+                </div>
+            </div>
+             <!-- Attribution Footer -->
+           
+        </div>
+         <div class="attribution">
+                Challenge by <a href="#" target="_blank">CrioDo</a>. Coded by <a href="#" target="_blank">Chiru</a>
+            </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
