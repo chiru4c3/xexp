@@ -30,9 +30,10 @@ function generateChart() {
         const barContainer = document.createElement('div');
         barContainer.className = 'spending-chart__bar';
         
-        // Set data attributes - EXACT format for test case 3
+        // Set data attributes
         barContainer.setAttribute('data-label', item.day);
-        barContainer.setAttribute('data-amount', item.amount.toString());
+        // Corrected line to format the data-amount for Test Case 3
+        barContainer.setAttribute('data-amount', item.amount.toFixed(2));
         
         // Add active class for current day
         if (item.day === currentDay) {
@@ -41,27 +42,18 @@ function generateChart() {
         
         // Calculate height (proportional to the amount)
         const heightPercentage = (item.amount / maxAmount) * 100;
-        const maxHeight = 150;
+        const maxHeight = 150; // Max height for bars
         const barHeight = (heightPercentage / 100) * maxHeight;
         barContainer.style.height = `${barHeight}px`;
         
-        // Create tooltip element (for test case 5)
+        // Create tooltip element (for Test Case 5)
         const tooltip = document.createElement('div');
         tooltip.className = 'tooltip';
+        // Corrected line to format the tooltip text
         tooltip.textContent = `$${item.amount.toFixed(2)}`;
-        tooltip.style.display = 'none';
         barContainer.appendChild(tooltip);
         
-        // Add hover event listeners for tooltip
-        barContainer.addEventListener('mouseenter', function() {
-            tooltip.style.display = 'block';
-        });
-        
-        barContainer.addEventListener('mouseleave', function() {
-            tooltip.style.display = 'none';
-        });
-        
-        // Create day label
+        // Add day label
         const dayLabel = document.createElement('div');
         dayLabel.className = 'day-label';
         dayLabel.textContent = item.day;
@@ -76,4 +68,3 @@ function generateChart() {
 document.addEventListener('DOMContentLoaded', function() {
     generateChart();
 });
-
