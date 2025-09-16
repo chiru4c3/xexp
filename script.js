@@ -29,6 +29,8 @@ function generateChart() {
         // Create bar container
         const barContainer = document.createElement('div');
         barContainer.className = 'spending-chart__bar';
+        
+        // Set data attributes with proper formatting
         barContainer.setAttribute('data-label', item.day);
         barContainer.setAttribute('data-amount', item.amount.toFixed(2));
         
@@ -42,12 +44,6 @@ function generateChart() {
         const maxHeight = 150; // Maximum height in pixels
         const barHeight = (heightPercentage / 100) * maxHeight;
         barContainer.style.height = `${barHeight}px`;
-        
-        // Create tooltip
-        const tooltip = document.createElement('div');
-        tooltip.className = 'tooltip';
-        tooltip.textContent = `$${item.amount.toFixed(2)}`;
-        barContainer.appendChild(tooltip);
         
         // Create day label
         const dayLabel = document.createElement('div');

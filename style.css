@@ -97,18 +97,9 @@ body {
     opacity: 0.6;
 }
 
-/* Day Labels */
-.day-label {
-    position: absolute;
-    bottom: -30px;
-    font-size: 15px;
-    color: #93867b;
-    font-weight: 400;
-    text-align: center;
-}
-
-/* Tooltip */
-.tooltip {
+/* Tooltip using CSS pseudo-elements */
+.spending-chart__bar::before {
+    content: "$" attr(data-amount);
     position: absolute;
     bottom: 100%;
     left: 50%;
@@ -124,12 +115,13 @@ body {
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
+    pointer-events: none;
 }
 
-.tooltip::after {
+.spending-chart__bar::after {
     content: "";
     position: absolute;
-    top: 100%;
+    bottom: 100%;
     left: 50%;
     transform: translateX(-50%);
     width: 0;
@@ -137,11 +129,27 @@ body {
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
     border-top: 6px solid #382314;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    margin-bottom: 2px;
+    pointer-events: none;
 }
 
-.spending-chart__bar:hover .tooltip {
+.spending-chart__bar:hover::before,
+.spending-chart__bar:hover::after {
     opacity: 1;
     visibility: visible;
+}
+
+/* Day Labels */
+.day-label {
+    position: absolute;
+    bottom: -30px;
+    font-size: 15px;
+    color: #93867b;
+    font-weight: 400;
+    text-align: center;
 }
 
 /* Divider */
@@ -181,13 +189,27 @@ body {
     font-size: 18px;
     font-weight: 700;
     color: #382314;
-    margin: 0 0 4px 0;
+    margin: 0;
 }
 
-.comparison-text {
-    font-size: 15px;
+/* Attribution Footer */
+.attribution {
+    text-align: center;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #f0f0f0;
+    font-size: 14px;
     color: #93867b;
-    margin: 0;
+}
+
+.attribution a {
+    color: #382314;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.attribution a:hover {
+    text-decoration: underline;
 }
 
 /* Responsive Design */
@@ -245,3 +267,4 @@ body {
         font-size: 32px;
     }
 }
+
